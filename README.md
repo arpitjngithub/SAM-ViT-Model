@@ -1,41 +1,20 @@
-# Masking Approach using SAM-ViT Model
+# SAM-ViT Masking Approach for Segmentation
+This repository provides a streamlined implementation of the SAM-ViT model, designed for efficient image segmentation tasks.
 
-### This repository contains code for a masking approach using the SAM-ViT (Self-Attention Mechanism for Vision Transformers) model, tailored for segmentation tasks.
+# Key Features
+  ## Data Loading & Preprocessing:
 
-## Overview
+Load and pad images and masks from designated folders.
+Break down large images into smaller patches for easier processing.
+Utilize the MONAI library to create a custom dataset (SAMDataset) for medical imaging.
+## Model Configuration:
 
-The code provided in this repository includes:
+Set up the SAM-ViT model (SamModel) using Huggingface Transformers.
+Optimize by freezing parameters of the vision and prompt encoders.
+## Training Setup:
 
-## 1. Data Loading and Preprocessing:
+Configure training parameters such as epochs, learning rate, and optimizer (Adam).
+Implement a training loop to compute losses, update parameters, and save model weights after each epoch.
+## Loss Calculation:
 
-Functions to load and pad images and masks from specified folders.
-Patching large images into smaller patches for efficient processing.
-Creation of a custom dataset (SAMDataset) using the MONAI library for medical imaging.
-
-## 2. Model Setup:
-
-Initialization and configuration of the SAM-ViT model (SamModel) using the Huggingface Transformers library.
-Optimization of the model setup to freeze parameters of the vision and prompt encoders.
-
-## 3. Training Setup:
-
-Configuration of training parameters such as epochs, learning rate, and optimizer (Adam).
-Implementation of a training loop that iterates through epochs, computes losses, and updates model parameters.
-Saving of model weights after each epoch to specified directories.
-
-## 4. Loss Functions:
-
-Utilization of MONAI library's loss functions (DiceCELoss, etc.) for calculating segmentation losses during training.
-
-
-# USAGE
-
-## Environment Setup
-
-1. Install required packages:
-
-pip install torch torchvision numpy matplotlib monai transformers
-
-## Training the Model
-
-To train the model for different class change the image_folder and mask-folder path
+Apply MONAI’s loss functions (e.g., DiceCELoss) for segmentation during training.
